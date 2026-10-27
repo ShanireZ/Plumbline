@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "plumbline",
+  "version": "0.1.2",
+  "description": "Verify software changes against project requirements with traceable evidence and explicit gaps.",
+  "author": {
+    "name": "ShanireZ"
+  },
+  "license": "GPL-3.0-or-later",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Plumbline",
+        "shortDescription": "Evidence-based verification",
+        "longDescription": "Verify software changes against project requirements with traceable evidence and explicit gaps.",
+        "developerName": "ShanireZ",
+        "category": "Productivity",
+        "defaultPrompt": "Use $plumbline:plumbline to verify this change against the project's requirements.",
+        "logo": "./assets/plumbline.png",
+        "composerIcon": "./assets/plumbline.png"
+      }
+    }
+  }
+}

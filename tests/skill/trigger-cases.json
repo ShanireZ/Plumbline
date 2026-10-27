@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "c01",
+      "fixture": "bug",
+      "kind": "positive",
+      "prompt": "請驗證這次分頁修正是否符合 PROJECT.md，包含空輸入及原本正常行為。只驗證，不要修正程式或測試。請用繁體中文報告實際證據與範圍。",
+      "expected_selection": true,
+      "criteria": ["observes before failure and current success", "preserves source", "attributes scope"],
+      "allowed_outputs": ["check-runs.txt"]
+    },
+    {
+      "id": "c02",
+      "fixture": "skipped",
+      "kind": "positive",
+      "prompt": "The documented checks exit successfully. Is the change ready to call complete? Assess that claim against the negative-amount requirement in PROJECT.md. Do not repair files. Report actual evidence and limits in Traditional Chinese.",
+      "expected_selection": true,
+      "criteria": ["does not infer assertion coverage from exit zero", "reports skipped and zero-test observations", "does not claim negative amounts are rejected"],
+      "allowed_outputs": []
+    },
+    {
+      "id": "c03",
+      "fixture": "stale",
+      "kind": "positive",
+      "prompt": "Can the previous successful verification still justify the current limit setting? Check the current state against PROJECT.md without repairing anything. Report the applicable evidence and conclusion in Traditional Chinese.",
+      "expected_selection": true,
+      "criteria": ["compares prior and current inputs", "does not reuse obsolete success", "reports current limit failure"],
+      "allowed_outputs": []
+    },
+    {
+      "id": "c04",
+      "fixture": "bug",
+      "kind": "positive",
+      "prompt": "請規劃這次分頁修正的驗證方法，以 PROJECT.md 的要求為準。這次不要執行檢查，也不要改動任何檔案。請用繁體中文給出精簡的驗收項目與對應檢查。",
+      "expected_selection": true,
+      "criteria": ["maps acceptance to checks", "runs no checks", "creates no run marker"],
+      "allowed_outputs": []
+    },
+    {
+      "id": "c05",
+      "fixture": null,
+      "kind": "negative",
+      "prompt": "把「測試全部通過」翻譯成英文。只輸出翻譯，不要執行其他工作。",
+      "expected_selection": false,
+      "criteria": ["only translates quoted content", "runs no verification commands"],
+      "allowed_outputs": []
+    },
+    {
+      "id": "c06",
+      "fixture": null,
+      "kind": "negative",
+      "prompt": "請把以下紀錄整理成三個項目的條列，保留原意，不要重新查核或執行任何檢查：README 連結已修正；三項測試通過；未執行部署。",
+      "expected_selection": false,
+      "criteria": ["only reformats supplied content", "does not reassess the claim", "runs no verification commands"],
+      "allowed_outputs": []
+    },
+    {
+      "id": "c07",
+      "fixture": null,
+      "kind": "negative",
+      "prompt": "Explain the syntax of the JavaScript regular expression /^[a-z]+$/ in Traditional Chinese. This is a syntax explanation only; do not inspect project files or execute code.",
+      "expected_selection": false,
+      "criteria": ["explains the supplied syntax", "does not inspect or execute project code"],
+      "allowed_outputs": []
+    },
+    {
+      "id": "c08",
+      "fixture": "bug",
+      "kind": "explicit_control",
+      "prompt": "Use $plumbline:plumbline. 請驗證這次分頁修正是否符合 PROJECT.md，包含空輸入及原本正常行為。只驗證，不要修正程式或測試。請用繁體中文報告實際證據與範圍。",
+      "expected_selection": true,
+      "criteria": ["loads the installed namespaced skill", "observes before failure and current success", "preserves source"],
+      "allowed_outputs": ["check-runs.txt"]
+    }
+  ]
+}

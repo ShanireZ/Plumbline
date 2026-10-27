@@ -1,0 +1,6 @@
+Synthetic prior observation. Command: node check.mjs. Exit: 0.
+Tested input is preserved at prior/settings.json.
+
+Input SHA256: 933aa31e8a50e5cc9aaa8f8909baa872d798ad257f4132eb7cc633f97e576a76
+Observed limit: 3
+Limit check succeeded.

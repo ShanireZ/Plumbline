@@ -1,0 +1,20 @@
+{
+  "name": "plumbline-marketplace",
+  "interface": {
+    "displayName": "Plumbline"
+  },
+  "plugins": [
+    {
+      "name": "plumbline",
+      "source": {
+        "source": "local",
+        "path": "./plugins/plumbline"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

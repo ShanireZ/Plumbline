@@ -1,0 +1,9 @@
+{
+  "name": "plumbline",
+  "version": "0.1.2",
+  "description": "Verify software changes against project requirements with traceable evidence and explicit gaps.",
+  "author": {
+    "name": "ShanireZ"
+  },
+  "license": "GPL-3.0-or-later"
+}

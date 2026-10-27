@@ -1,0 +1,13 @@
+{
+  "name": "plumbline-marketplace",
+  "description": "Evidence-based software verification with the portable Plumbline skill.",
+  "owner": {
+    "name": "ShanireZ"
+  },
+  "plugins": [
+    {
+      "name": "plumbline",
+      "source": "./plugins/plumbline"
+    }
+  ]
+}
