@@ -3,17 +3,20 @@
 [![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg?style=flat-square)](LICENSE)
 ![類型：Agent Skill](https://img.shields.io/badge/type-Agent%20Skill-blue.svg?style=flat-square)
 
+<img src="plugins/plumbline/assets/plumbline.png" alt="Plumbline" width="96" height="96">
+
 準繩 Plumbline 協助 Agent 依據專案既有規範，選擇適當檢查、取得可追溯證據，並準確說明軟體變更的完成程度。
 
 ## 安裝與使用
 
-將本 GitHub 儲存庫加入 Codex 或 Claude Code 的自訂市場，再使用原生管理器安裝。
+先備妥 Codex 或 Claude Code 與 Git，再將本儲存庫加入自訂市場，使用宿主的原生管理器安裝。
 
 Codex CLI：
 
 ```shell
 codex plugin marketplace add ShanireZ/Plumbline
 codex plugin add plumbline@plumbline-marketplace
+codex plugin list --marketplace plumbline-marketplace --json
 ```
 
 Claude Code CLI：
@@ -21,9 +24,10 @@ Claude Code CLI：
 ```shell
 claude plugin marketplace add ShanireZ/Plumbline
 claude plugin install plumbline@plumbline-marketplace --scope user
+claude plugin details plumbline@plumbline-marketplace
 ```
 
-宿主介面、工作階段內安裝、本機來源、更新及移除方式見 [安裝說明](INSTALL.md)。
+前置條件、宿主介面、本機來源、獨立 skill、更新、移除及疑難排解見 [安裝說明](INSTALL.md)。上述命令使用本儲存庫的自訂市場。
 遠端交付狀態與實測範圍只記在 [PLAN.md](PLAN.md)；私有儲存庫需要既有 Git 存取權。
 
 兩種宿主共用同一份 [skill](plugins/plumbline/skills/plumbline/SKILL.md)。安裝外掛並開啟新工作階段後，可以提出：

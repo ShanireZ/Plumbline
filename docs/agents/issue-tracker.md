@@ -10,9 +10,9 @@ status: stable
 
 Public features, defects, implementation work, and design-change proposals for Plumbline live in GitHub Issues at `ShanireZ/Plumbline` after the repository is published.
 
-## Current pre-publication limitation
+## Publication boundary
 
-The GitHub repository exists privately with bootstrap history, but its public issue tracker does not exist yet. Before public publication, do not create a parallel `.scratch/` tracker or claim that an issue number exists. Approved product decisions live only in [`../../PLAN.md`](../../PLAN.md). Start publishing issues only after the owner makes the GitHub authority public.
+While the repository is private, its issue tracker is limited to users with access. Do not claim a public issue exists or create a parallel tracker. Approved product decisions and current publication status live only in [`../../PLAN.md`](../../PLAN.md). Public issue work starts after the owner-authorized visibility change.
 
 ## Conventions
 

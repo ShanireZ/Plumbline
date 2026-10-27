@@ -94,7 +94,7 @@ unchanged from 0.1.1. Earlier behavior samples are bounded observations, not a
 general reliability rate. Native installation of the 0.1.2 wrapper remains
 unverified. Existing user installations were not modified by this work.
 
-The fresh history has one DCO-signed initial contribution. Its exact object ID,
+The fresh history starts with one DCO-signed initial contribution. Its exact object ID,
 frozen file hashes, local validation outputs, lease value and remote read-back
 belong to the private delivery receipt, avoiding a self-referential commit hash in
 this tree. Verify actual Git refs when accepting or resuming delivery.
@@ -158,6 +158,20 @@ invocation and removal. Private access uses existing host Git authentication.
 Changing source does not prove an installed cache was replaced. Installation and
 discovery do not establish automatic selection or correctness of every report.
 
+The 2026-10-27 prepublication review adds explicit prerequisites, installed-plugin
+checks, native refresh/update/removal commands, standalone installation and recovery
+from a cached pre-rewrite marketplace. Codex CLI command syntax is checked against
+the installed 0.162.1 help; Claude instructions and metadata are checked against
+official documentation and the static package gate, without invoking Claude CLI.
+This review does not establish a new end-to-end native installation result.
+
+The owner explicitly authorized this batch's signed-off commit, normal GitHub
+push and scoped CNB synchronization on 2026-10-27, with both repositories staying
+private. Conditional GitHub public visibility waits for verified delivery as well
+as the provider-cleanup conditions below. Private receipts bind the reviewed main
+and its retained fresh initial root. Product skill, icon, manifests and package
+version remain unchanged.
+
 ## 9. Cleanup and recovery
 
 The retired Rust/Docker source, dependencies/toolchain, historical architecture,
@@ -179,16 +193,19 @@ plugin-directory publication. Keep both open: a new initial commit changes branc
 ancestry but does not erase provider-held PR refs, unreachable commits or caches.
 Support record IDs, original private hashes and correspondence remain outside Git.
 
-On 2026-10-27 the authenticated GitHub ticket page still showed Open with only the
-original owner comment. The CNB Gmail thread still contained only the original
-sent request; no provider reply was observed. No completion is inferred, and
-neither request has been withdrawn or amended by this task.
+On 2026-10-27 the owner separately authorized synchronization of the new main to
+the existing private CNB mirror and supplements to both original support requests.
+The synchronization and supplements were delivered and read back. GitHub remained
+Open with two owner comments; the CNB thread contained two owner-sent messages.
+No provider completion reply was observed, and neither request was withdrawn.
 
-The new main hash can be supplied in a later owner-authorized update; the old
-private object/ref identifiers remain valid cleanup targets. Keep the pending
-requests and verify their actual outcome. Prior branch replacement and CNB GC
-did not establish erasure. Require formal completion plus authenticated old-object
-inaccessibility before the scheduled visibility change.
+The old private object/ref identifiers remain cleanup targets. Authenticated
+checks still found a retained GitHub commit/PR ref and the superseded CNB main
+readable, even though the original CNB probe had changed to not found. Exact
+identifiers and results stay in private receipts. Owner follow-ups are not provider
+approval. Require formal completion, authenticated old-object inaccessibility and
+verified delivery of the pending prepublication content before the scheduled
+visibility change. GitHub and CNB remain private while those conditions are unmet.
 
 ## 11. Active decisions
 

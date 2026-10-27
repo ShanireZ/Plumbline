@@ -3,19 +3,22 @@
 [![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg?style=flat-square)](LICENSE)
 ![Type: Agent Skill](https://img.shields.io/badge/type-Agent%20Skill-blue.svg?style=flat-square)
 
+<img src="plugins/plumbline/assets/plumbline.png" alt="Plumbline" width="96" height="96">
+
 Plumbline helps coding agents verify software changes with traceable evidence,
 using each project's existing requirements and tools.
 
 ## Install and use
 
-Add this GitHub repository as a custom marketplace, then install the plugin with
-the host's native manager.
+With Codex or Claude Code and Git installed, add this repository as a custom
+marketplace, then install the plugin with the host's native manager.
 
 Codex CLI:
 
 ```shell
 codex plugin marketplace add ShanireZ/Plumbline
 codex plugin add plumbline@plumbline-marketplace
+codex plugin list --marketplace plumbline-marketplace --json
 ```
 
 Claude Code CLI:
@@ -23,10 +26,12 @@ Claude Code CLI:
 ```shell
 claude plugin marketplace add ShanireZ/Plumbline
 claude plugin install plumbline@plumbline-marketplace --scope user
+claude plugin details plumbline@plumbline-marketplace
 ```
 
-[Installation instructions](INSTALL.md) also cover the host UI, in-session
-commands, local checkouts, updates and removal. Remote availability and tested-host
+[Installation instructions](INSTALL.md) cover prerequisites, the host UI, local
+checkouts, standalone skills, updates, removal and troubleshooting. These commands
+use this repository's custom marketplace. Remote availability and tested-host
 evidence belong to [PLAN.md](PLAN.md); private repository access requires existing
 Git authentication.
 
