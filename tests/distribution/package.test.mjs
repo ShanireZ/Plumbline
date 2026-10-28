@@ -19,7 +19,7 @@ const run = (dir) => spawnSync(process.execPath, [gate, dir], { encoding: 'utf8'
 test('canonical catalogs and minimal payload pass the actual entry point', () => {
   const result = run(root);
   assert.equal(result.status, 0, result.stderr);
-  assert.deepEqual(JSON.parse(result.stdout), { plugin: 'plumbline', version: '0.1.2', files: 11 });
+  assert.deepEqual(JSON.parse(result.stdout), { plugin: 'plumbline', version: '0.1.3', files: 11 });
 });
 
 const editJson = (dir, path, edit) => {
@@ -29,6 +29,28 @@ const editJson = (dir, path, edit) => {
   writeFileSync(file, JSON.stringify(value));
 };
 const controls = [
+  ['unintended later-version grant', (dir) => {
+    for (const path of ['plugins/plumbline/plugin.json', 'plugins/plumbline/.claude-plugin/plugin.json']) {
+      editJson(dir, path, (v) => { v.license = 'GPL-3.0-or-later'; });
+    }
+  }, /GPL-3\.0-only/],
+  ['wrong standalone skill license', (dir) => {
+    const file = join(dir, 'plugins/plumbline/skills/plumbline/SKILL.md');
+    writeFileSync(file, readFileSync(file, 'utf8').replace('license: GPL-3.0-only', 'license: GPL-3.0-or-later'));
+  }, /GPL-3/],
+  ['missing project license grant', (dir) => {
+    for (const path of ['LICENSE', 'plugins/plumbline/LICENSE', 'plugins/plumbline/skills/plumbline/LICENSE.txt']) {
+      const file = join(dir, path);
+      const text = readFileSync(file, 'utf8');
+      writeFileSync(file, text.slice(text.indexOf('                    GNU GENERAL PUBLIC LICENSE')));
+    }
+  }, /Project license grant must be GPL-3\.0-only/],
+  ['changed standard GPL text in every copy', (dir) => {
+    for (const path of ['LICENSE', 'plugins/plumbline/LICENSE', 'plugins/plumbline/skills/plumbline/LICENSE.txt']) {
+      const file = join(dir, path);
+      writeFileSync(file, readFileSync(file, 'utf8').replace('Version 3, 29 June 2007', 'Version 2, 29 June 1991'));
+    }
+  }, /Standard GPL text differs/],
   ['version mismatch', (dir) => editJson(dir, 'plugins/plumbline/.claude-plugin/plugin.json', (v) => { v.version = '0.2.0'; }), /Host metadata differs: version/],
   ['catalog escape', (dir) => editJson(dir, '.agents/plugins/marketplace.json', (v) => { v.plugins[0].source.path = '../outside'; }), /Wrong catalog source/],
   ['missing standalone license', (dir) => rmSync(join(dir, 'plugins/plumbline/skills/plumbline/LICENSE.txt')), /Unexpected or missing plugin payload/],

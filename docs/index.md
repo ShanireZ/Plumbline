@@ -2,14 +2,20 @@
 okf_version: "0.2"
 ---
 
-# Plumbline knowledge bundle
+# Plumbline documentation
 
-[`PLAN.md`](../PLAN.md) owns current product scope, acceptance, delivery state, and
-decisions. This Open Knowledge Format v0.2 bundle provides navigation; it does not
-add requirements to the portable skill.
+[Product scope, decisions and current status](../PLAN.md) live in `PLAN.md`.
+This bundle provides navigation and maintenance guidance for the portable skill.
 
-- [Skill package](../plugins/plumbline/skills/plumbline/SKILL.md) — operational instructions and selective references.
-- [Installation](../INSTALL.md) — native Codex/Claude Code marketplaces and CLI commands.
-- [Behavior validation](../tests/skill/README.md) — isolated local scenarios.
-- [Governance](governance/index.md) — authority, exact DCO record and web applicability.
-- [Agent conventions](agents/index.md) — issue tracker, triage, and domain conventions.
+## Use and contribute
+
+- [Skill instructions](../plugins/plumbline/skills/plumbline/SKILL.md) — portable verification workflow.
+- [Installation](../INSTALL.md) — native marketplaces, standalone skills, updates and removal.
+- [Contributing](../CONTRIBUTING.md) — focused changes, validation and DCO.
+- [Security](../SECURITY.md) — private reporting and execution boundaries.
+- [Behavior validation](../tests/skill/README.md) — isolated developer scenarios.
+
+## Maintain the project
+
+- [Governance](governance/index.md) — authority, documentation conventions and web applicability.
+- [Agent conventions](agents/index.md) — project context, Issues and triage labels.

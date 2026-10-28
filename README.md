@@ -1,11 +1,11 @@
-[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文（TW）](README.zh-TW.md) | [日本語](README.ja.md)
-
 # Plumbline
 
-[![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg?style=flat-square)](LICENSE)
+[![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg?style=flat-square)](LICENSE)
 ![Type: Agent Skill](https://img.shields.io/badge/type-Agent%20Skill-blue.svg?style=flat-square)
 
 <img src="plugins/plumbline/assets/plumbline.png" alt="Plumbline" width="96" height="96">
+
+[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文(TW)](README.zh-TW.md) | [日本語](README.ja.md)
 
 A portable skill for evidence-based software verification across coding tools.
 
@@ -50,4 +50,4 @@ missing, skipped, or stale evidence leaves the relevant result unverified.
 
 - [Product scope and status](PLAN.md) · [Documentation](docs/index.md)
 - [Contributing and DCO](CONTRIBUTING.md) · [Security](SECURITY.md)
-- [GNU GPL v3.0 or later](LICENSE) (`GPL-3.0-or-later`)
+- [GNU GPL v3.0](LICENSE) (`GPL-3.0-only`)

@@ -1,48 +1,64 @@
 # Contributing to Plumbline
 
-Plumbline's current milestone, implementation status, and execution boundary are maintained only in [`PLAN.md`](PLAN.md). Contributions must preserve the authority and trust boundaries defined there.
+Use [GitHub Issues](https://github.com/ShanireZ/Plumbline/issues) for features,
+defects and proposals. Read [the project guide](AGENTS.md) and the relevant
+[product contract](PLAN.md) before changing the shared skill or package.
+Report suspected vulnerabilities through [the security policy](SECURITY.md).
 
-## Before contributing
+## Scope and review
 
-- Read [`AGENTS.md`](AGENTS.md), [`PLAN.md`](PLAN.md), and the relevant skill instructions and behavior scenarios.
-- Use GitHub Issues for public features, defects, and design changes after the repository is published.
-- Use the private process in [`SECURITY.md`](SECURITY.md) for suspected vulnerabilities.
-- Do not implement an unapproved product decision or silently reopen the current D081 contract or retained decisions.
+Keep changes focused and explain the requirement they address. Product decisions
+belong in `PLAN.md`; documentation indexes provide navigation. Do not silently
+restore retired framework obligations or weaken a target project's permissions.
+
+Preserve unrelated work. Never commit credentials, private evidence, sensitive
+logs or provider-cleanup correspondence. See the
+[documentation convention](docs/governance/documentation.md) for the OKF bundle.
+
+## Checks
+
+From the repository root:
+
+```shell
+node --test tests/distribution/package.test.mjs
+bash tests/governance/check-dco.sh
+git diff --check
+git diff --cached --check
+```
+
+The package gate needs Node.js. The DCO gate needs Bash and Git, and checks a
+complete, non-shallow history with negative controls. Check whitespace in both
+the worktree and staged candidate; clean worktree output alone does not inspect
+a staged change.
+
+For skill metadata, run the available skill creator's `scripts/quick_validate.py`
+on `plugins/plumbline/skills/plumbline` if that developer tool is installed.
+For behavior changes, follow [the isolated scenarios](tests/skill/README.md).
+A packaging check does not establish agent behavior or native installation.
+Check changed documentation links, YAML, examples and rendered layout.
+Claude compatibility is checked statically; do not run Claude CLI validation.
 
 ## Developer Certificate of Origin
 
-Every commit must certify the [Developer Certificate of Origin 1.1](https://developercertificate.org/) using a `Signed-off-by` trailer:
+Each commit must have a `Signed-off-by` trailer matching its author email under
+ASCII case-insensitive comparison. Display names may differ. Add it with
+`git commit -s`:
 
 ```text
 Signed-off-by: Your Name <your.email@example.com>
 ```
 
-Use `git commit -s` to add the trailer. By signing off, you certify that you have the right to submit the contribution under this project's license.
+Signing off certifies the [Developer Certificate of Origin 1.1](https://developercertificate.org/):
+you have the right to submit the contribution under the project license.
+Every reachable commit needs its own sign-off; there are no retrospective
+exceptions. `Co-Authored-By` does not require an additional sign-off.
 
-The sign-off email must match the commit author email under ASCII case-insensitive comparison; the display names may differ. `Co-Authored-By` does not create an additional sign-off requirement.
+## License and delivery
 
-The fresh skill-only history has no retrospective exceptions or certificate route.
-Every reachable commit must carry its own author-email-matching sign-off.
+Current contributions use [GNU GPL version 3 only](LICENSE)
+(`GPL-3.0-only`). Preserve the project grant and the unmodified standard GPL text
+in all packaged license copies.
 
-Run `bash tests/governance/check-dco.sh` from a complete, non-shallow checkout. The
-no-argument check validates every commit reachable from `HEAD` and proves its own
-missing-sign-off, wrong-email, and shallow-history failure paths.
-
-## Change expectations
-
-- Keep changes focused and explain the policy or acceptance criterion they satisfy.
-- Validate packaging and exercise realistic isolated scenarios for skill behavior changes; see [`tests/skill/README.md`](tests/skill/README.md).
-- A new or changed gate must include positive and negative controls proving that it can detect the intended failure.
-- Preserve target-project requirements and authorization boundaries. Do not import retired framework thresholds or policies into the skill.
-- Update the smallest authoritative document. Do not duplicate conclusions into navigation documents.
-- Never include credentials, private evidence, real secret values, or unredacted sensitive logs.
-
-## Review and publication
-
-The owner controls repository visibility, commits, pushes, mirror synchronization
-and releases. Each action requires the applicable explicit authorization. Delivery
-scope and any conditional visibility authorization are recorded in `PLAN.md`.
-
-## License
-
-Contributions are accepted under `GPL-3.0-or-later`, matching the repository license.
+Commit, push, PR, mirror synchronization, release and installation require the
+owner's applicable explicit authorization under [the project guide](AGENTS.md).
+A request to review or fix documents grants no new external-write permission.

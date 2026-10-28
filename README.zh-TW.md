@@ -1,11 +1,11 @@
-[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文（TW）](README.zh-TW.md) | [日本語](README.ja.md)
-
 # 準繩 Plumbline
 
-[![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg?style=flat-square)](LICENSE)
+[![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg?style=flat-square)](LICENSE)
 ![Type: Agent Skill](https://img.shields.io/badge/type-Agent%20Skill-blue.svg?style=flat-square)
 
 <img src="plugins/plumbline/assets/plumbline.png" alt="Plumbline" width="96" height="96">
+
+[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文(TW)](README.zh-TW.md) | [日本語](README.ja.md)
 
 適用於各類 AI 程式開發工具、以證據為依據的軟體變更驗證 skill。
 
@@ -45,4 +45,4 @@ claude plugin install plumbline@plumbline-marketplace --scope user
 
 - [產品範圍與狀態](PLAN.md) · [文件](docs/index.md)
 - [貢獻與 DCO](CONTRIBUTING.md) · [安全](SECURITY.md)
-- [GNU GPL v3.0 或後續版本](LICENSE)（`GPL-3.0-or-later`）
+- [GNU GPL v3.0](LICENSE)(`GPL-3.0-only`)

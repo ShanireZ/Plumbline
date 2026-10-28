@@ -40,7 +40,7 @@ Read first:
 - Local commit, push, PR, mirror sync, release, publication, and installation each
   require the owner's applicable explicit authorization. Historical authorization
   does not carry forward. Never add private evidence or credentials to the repo.
-- History replacement follows the exact D085 scope in `PLAN.md`; offline recovery
+- History replacement follows the current owner-approved scope in `PLAN.md`; offline recovery
   material and pending provider-cleanup receipts stay outside the repository.
 
 ## Verification

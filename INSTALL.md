@@ -13,8 +13,8 @@ missing, update the host first.
 
 The examples install for your own user, without adding settings to the target
 project. Public repository installation needs no private-repository credentials.
-The hosts actually checked are recorded in
-[PLAN.md](PLAN.md#8-dual-host-marketplace-distribution). Keep any credentials
+The dated host syntax checks are recorded in
+[PLAN.md](PLAN.md#3-package-and-installation). Keep any credentials
 outside commands, source URLs and plugin files.
 
 ## From GitHub

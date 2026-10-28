@@ -3,7 +3,7 @@ type: governance
 title: Workspace web-governance applicability
 description: Records the browser and web-contract applicability of the non-web skill package.
 tags: [governance, baseline, modern-web-guidance, sitemap, content-negotiation]
-status: current
+status: stable
 sources:
   - id: plumbline-plan
     resource: ../../PLAN.md
@@ -46,7 +46,7 @@ verification: Skill packaging and behavior checks defined by PLAN.md; no browser
 - Do not add Browserslist, a browser build target, Web polyfills, or browser compatibility gates solely to satisfy workspace uniformity.
 - Do not publish an empty sitemap, placeholder `robots.txt`, invented canonical origin, Markdown HTTP route, or content-negotiation server.
 - Continue maintaining the existing OKF Markdown bundle; OKF source documents and HTTP Markdown negotiation are separate concerns.
-- Do not treat eventual publication of the GitHub repository by itself as a project-owned content site. GitHub controls its own routes and HTTP representations.
+- Repository hosting does not create a project-owned HTTP content service. GitHub and CNB control their own routes and representations.
 - Continue applying Modern Web Guidance if a future task actually introduces HTML, CSS, client-side JavaScript, a browser API, or web-performance behavior; this current N/A registration does not waive that task-level rule.
 
 ## Reopen conditions

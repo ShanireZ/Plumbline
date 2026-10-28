@@ -1,9 +1,6 @@
-# Agent Configuration
+# Agent conventions
 
-* [Project guide](../../AGENTS.md) - Project authority, boundaries and validation commands.
-* [Issue tracker](issue-tracker.md) - GitHub Issues authority and publication boundary.
-* [Triage labels](triage-labels.md) - Mapping of engineering triage roles.
-* [Domain documentation](domain.md) - Context documents, glossaries and ADRs.
-
-Documentation uses Markdown with YAML frontmatter, navigation indexes and no build
-step. Current product decisions and status live only in `PLAN.md`.
+- [Project guide](../../AGENTS.md) — boundaries, authorities and validation commands.
+- [Project context](domain.md) — actual product terms and source locations.
+- [Issue tracker](issue-tracker.md) — public work requests and authority.
+- [Triage labels](triage-labels.md) — the mapping from triage judgments to tracker labels.

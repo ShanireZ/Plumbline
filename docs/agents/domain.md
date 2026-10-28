@@ -1,63 +1,36 @@
 ---
 type: convention
-title: Agent skill domain documentation
-description: Defines how engineering skills locate domain context and architectural decisions.
-tags: [agents, domain-docs, adr]
+title: Project context
+description: Maps Plumbline product terms to their authoritative source locations.
+tags: [agents, project-context]
 status: stable
+sources:
+  - id: plan
+    resource: ../../PLAN.md
+    title: Product contract and owner decisions
 ---
 
-# Domain Docs
+# Project context
 
-## Selected layout
+Read [the relevant product contract](../../PLAN.md) before changing the package.
+Use the actual repository structure rather than a generic application template.[^plan]
 
-This target uses the **single-context** domain-doc layout. Read a root `GLOSSARY.md` and root `docs/adr/` when they exist.
+| Term | Meaning and source |
+| --- | --- |
+| Skill | The shared [operational instructions](../../plugins/plumbline/skills/plumbline/SKILL.md), references and report template. |
+| Plugin | The native wrapper at `plugins/plumbline/`; its README and manifests describe the installed payload. |
+| Marketplace | A host catalog pointing at that wrapper; see [installation](../../INSTALL.md). |
+| Evidence | Observations bound to the checked source, inputs and environment; see the skill's selective references. |
+| Acceptance | Project-owned requirements and checks, not a universal correctness score. |
 
-How the engineering skills should consume this repo's domain documentation when exploring the codebase.
+Product decisions stay in `PLAN.md`. Package checks live in
+`tests/distribution/`; sampled behavior cases live in
+[`tests/skill/`](../../tests/skill/README.md). Contributor and reporting rules
+belong in [CONTRIBUTING.md](../../CONTRIBUTING.md) and
+[SECURITY.md](../../SECURITY.md).
 
-## Before exploring, read these
+If an implementation conflicts with an approved decision, state the conflict and
+resolve it through the owner. A tool, issue or test result cannot reopen scope
+or grant publication permission.
 
-- **`GLOSSARY.md`** at the repo root, or
-- **`GLOSSARY-MAP.md`** at the repo root if it exists: it points at one `GLOSSARY.md` per context. Read each one relevant to the topic.
-- **`docs/adr/`**: read ADRs that touch the area you're about to work in. In multi-context repos, also check `src/<context>/docs/adr/` for context-scoped decisions.
-
-If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The `/domain-modeling` skill (reached via `/grill-with-docs` and `/improve-codebase-architecture`) creates them lazily when terms or decisions actually get resolved.
-
-## File structure
-
-Single-context repo (most repos):
-
-```
-/
-├── GLOSSARY.md
-├── docs/adr/
-│   ├── 0001-event-sourced-orders.md
-│   └── 0002-postgres-for-write-model.md
-└── src/
-```
-
-Multi-context repo (presence of `GLOSSARY-MAP.md` at the root):
-
-```
-/
-├── GLOSSARY-MAP.md
-├── docs/adr/                          ← system-wide decisions
-└── src/
-    ├── ordering/
-    │   ├── GLOSSARY.md
-    │   └── docs/adr/                  ← context-specific decisions
-    └── billing/
-        ├── GLOSSARY.md
-        └── docs/adr/
-```
-
-## Use the glossary's vocabulary
-
-When your output names a domain concept (in an issue title, a refactor proposal, a hypothesis, a test name), use the term as defined in `GLOSSARY.md`. Don't drift to synonyms the glossary explicitly avoids.
-
-If the concept you need isn't in the glossary yet, that's a signal: either you're inventing language the project doesn't use (reconsider) or there's a real gap (note it for `/domain-modeling`).
-
-## Flag ADR conflicts
-
-If your output contradicts an existing ADR, surface it explicitly rather than silently overriding:
-
-> _Contradicts ADR-0007 (event-sourced orders), but worth reopening because…_
+[^plan]: Plumbline product contract and owner decisions.

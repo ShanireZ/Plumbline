@@ -1,5 +1,6 @@
 // Developer-only distribution gate. No code here is shipped in the plugin.
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, realpathSync } from 'node:fs';
 import { dirname, isAbsolute, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -44,7 +45,7 @@ export function checkPackage(root) {
   assert.equal(portable.$schema, 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json');
   assert.match(portable.version, /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/);
   assert.equal(portable.name, 'plumbline');
-  assert.equal(portable.license, 'GPL-3.0-or-later');
+  assert.equal(portable.license, 'GPL-3.0-only');
   for (const key of ['name', 'version', 'description', 'author', 'license']) {
     assert.deepEqual(portable[key], native[key], `Host metadata differs: ${key}`);
   }
@@ -68,12 +69,16 @@ export function checkPackage(root) {
   assert(width === height && width >= 256 && width <= 4096, 'Icon must be square and 256-4096 pixels');
 
   const license = readFileSync(resolve(root, 'LICENSE'));
+  const grant = Buffer.from('Plumbline\nCopyright (C) 2026 ShanireZ\nSPDX-License-Identifier: GPL-3.0-only\n\nPlumbline is licensed under the GNU General Public License, version 3 only.\n\n');
+  assert(license.subarray(0, grant.length).equals(grant), 'Project license grant must be GPL-3.0-only');
+  assert.equal(createHash('sha256').update(license.subarray(grant.length)).digest('hex'),
+    '3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986', 'Standard GPL text differs');
   for (const path of [resolve(plugin, 'LICENSE'), resolve(skill, 'LICENSE.txt')]) {
     assert(readFileSync(path).equals(license), `License differs: ${path}`);
   }
   const instructions = readFileSync(resolve(skill, 'SKILL.md'), 'utf8');
   assert.match(instructions, /^---\r?\nname: plumbline\r?\n/);
-  assert.match(instructions, /\r?\nlicense: GPL-3\.0-or-later\r?\n/);
+  assert.match(instructions, /\r?\nlicense: GPL-3\.0-only\r?\n/);
   assert(instructions.split('\n').length <= 251);
   for (const file of files(plugin).filter((path) => path.endsWith('.md'))) {
     const path = resolve(plugin, file);

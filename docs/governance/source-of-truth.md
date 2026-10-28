@@ -1,43 +1,43 @@
 ---
 type: governance
 title: Source of truth
-description: Defines authority boundaries for the portable skill, native packaging and contribution checks.
-tags: [governance, authority, skill]
-status: approved
+description: Defines product, implementation, contribution and evidence authorities.
+tags: [governance, authority]
+status: stable
 sources:
   - id: plan
     resource: ../../PLAN.md
-    title: Current product plan and owner decisions
+    title: Product contract and owner decisions
+  - id: guide
+    resource: ../../AGENTS.md
+    title: Project boundaries and commands
 ---
 
 # Source of truth
 
-[`PLAN.md`](../../PLAN.md) owns product scope, acceptance, current delivery state
-and owner decisions. D081 adopts the portable skill, D083 supplies thin native host
-packaging, and D084 limits delivery to the GitHub page and custom marketplace/CLI
-installation while retiring obsolete framework material. D085 defines the
-owner-authorized fresh skill-only history and ordinary DCO requirement.
+User instructions and host permissions bound every action.
+[`PLAN.md`](../../PLAN.md) owns Plumbline's product scope, acceptance, delivery
+state and decisions. [The project guide](../../AGENTS.md) records execution
+boundaries and validation commands.[^plan][^guide]
 
-| Material | Responsibility | Authority |
-|---|---|---|
-| `PLAN.md` | Product contract, decisions, current status | Highest project authority |
-| `plugins/plumbline/skills/plumbline/` | Portable operational instructions, selective references, report template | Implements the plan; does not override target-project or host authority |
-| `plugins/plumbline/`, marketplace catalogs, `INSTALL.md` | Host packaging and native installation instructions | Implements D083; does not grant installation or publication authority |
-| `tests/skill/` | Behavior scenarios and local checks | Evidence of sampled behavior, not a universal guarantee |
-| `tests/distribution/` | Package and negative-control checks | Local packaging evidence |
-| `tests/governance/` | Ordinary contribution-history checks | Every reachable commit needs its own matching sign-off |
-| README and documentation indexes | Stable identity and navigation | No duplicate changing status |
+| Material | Responsibility |
+| --- | --- |
+| `PLAN.md` | Product contract, current state and owner decisions. |
+| `plugins/plumbline/skills/plumbline/` | Shared operational instructions, selective references and report template. |
+| `plugins/plumbline/`, both catalogs and `INSTALL.md` | Package metadata and native/standalone installation. |
+| `LICENSE` and packaged copies | Project license grant and standard license text. |
+| `CONTRIBUTING.md` and `tests/governance/` | Contribution rules and DCO checks. |
+| `SECURITY.md` | Private reporting and disclosure guidance. |
+| `tests/distribution/` and `tests/skill/` | Package checks and sampled behavior evidence. |
+| README and indexes | Identity, usage entry points and navigation. |
 
-The retired Rust/Docker framework and prior Git history are held only in private
-offline recovery material. They are not an active source tree or second product.
-No historical contract may
-silently reintroduce a dependency, risk threshold, runtime or permission obligation.
+Update the document that owns a fact, then repair its navigation. Do not repeat
+changing status in indexes or silently restore retired framework requirements.
 
-Changes to approved scope belong in the plan, followed by the smallest affected
-instructions and navigation updates. Do not weaken a target project's acceptance
-or permission rules to make verification succeed. Provider receipts, private run
-data and credentials remain outside the repository.
+Packaging, agent behavior, native installation, real-project use and public
+availability require distinct evidence. Raw run data, recovery material and
+provider correspondence remain outside Git. An earlier successful check cannot
+establish a changed candidate's behavior.
 
-Current milestone and delivery status stay only in the plan. Packaging, behavior
-samples, installation/discovery, real-project adoption, and publication are separate
-claims and require their own evidence.
+[^plan]: Product contract and owner decisions.
+[^guide]: Project boundaries and commands.

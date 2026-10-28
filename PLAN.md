@@ -1,266 +1,137 @@
 # Plumbline Plan
 
-> Authority: this file owns product scope, acceptance, delivery boundaries and
-> owner decisions. Plumbline is a portable verification skill with native Codex
-> and Claude Code custom-marketplace packaging. The package version is 0.1.2.
+> Authority for product scope, acceptance, delivery state and owner decisions.
+> The portable skill is shared across coding tools. Codex and Claude Code have
+> native marketplace wrappers.
 
-## 1. Product charter
+## 1. Product contract
 
-Plumbline helps coding agents plan or perform evidence-based verification of
-concrete software changes using the target project's requirements and tools.
-It adds no mandatory runtime, project configuration, adapter, database, service,
-policy engine, automatic repair loop or automatic evidence upload.
+Plumbline helps coding agents verify concrete software changes against the target
+project's requirements with traceable evidence. It uses existing project tools
+and adds no mandatory runtime, configuration, service, policy engine or upload.
 
-Delivery consists of the GitHub repository page, custom marketplace installation
-in Codex and Claude Code, and native CLI installation. Official OpenAI/Claude
-directory uploads, submissions and publication are outside scope. No separate
-website or GitHub Pages deployment is required. The GPL-3.0-or-later license and
-owner-approved icon remain in place.
+The workflow establishes scope and authority, maps acceptance to checks, executes
+authorized checks, confirms evidence applies to the actual inputs, and reports
+results and gaps. Planning-only requests do not execute checks. Verification
+alone does not authorize repair, installation, deployment or publication.
 
-## 2. Approved skill contract
+Project requirements, user scope and host permissions remain authoritative.
+Preserve unrelated work. Derive commands from project sources, inspect material
+side effects, reproduce bugs when possible, and use disposable copies for
+source-changing negative controls.
 
-The canonical skill is `plugins/plumbline/skills/plumbline/`. Its five operational
-files are `SKILL.md`, `agents/openai.yaml`, the two selective references under
-`references/`, and `assets/report-template.md`. `LICENSE.txt` accompanies standalone
-installation. The native wrapper adds `plugin.json`, the Claude compatibility
-manifest, README, LICENSE and `assets/plumbline.png`.
+## 2. Skill and evidence
 
-The workflow resolves scope and authorities, maps acceptance to sufficient checks,
-executes authorized project tools, confirms evidence applicability to actual
-source/inputs, and reports observations and limits. Planning-only requests do not
-execute checks. Verification alone does not authorize repair or installation.
-An ongoing implementation may use the skill within its existing authorization.
+The canonical instructions are
+[`plugins/plumbline/skills/plumbline/SKILL.md`](plugins/plumbline/skills/plumbline/SKILL.md).
+Keep them within 250 lines. Load the two references selectively and use the
+report template when helpful. The accompanying `LICENSE.txt` stays with standalone
+installations.
 
-Project requirements, host permissions and actual user scope remain authoritative.
-Preserve unrelated changes; derive commands from project sources; inspect material
-side effects. Choose proportionate checks without global risk tiers or metric
-floors. Reproduce bugs when possible, exercise new paths, and use disposable copies
-for source-changing negative controls. Commit/status alone cannot bind dirty bytes.
-
-Per-item states are Verified, Failed, Unverified, Approval needed and Not applicable.
-Required gaps prevent an all-complete claim. Exit zero with zero/skipped tests,
+Per-item assessments are Verified, Failed, Unverified, Approval needed and Not
+applicable. Required gaps prevent an all-complete claim. Zero or skipped tests,
 stale or misbound evidence, and unexplained contradictory reruns do not establish
-behavior. Explain applicability, evidence, tested inputs and environment limits.
-These are reviewable assessments, not a sandbox, signed attestation, correctness
-score, machine-enforced verdict or the retired framework's `PASS`.
+behavior. Reports state the checked inputs, commands, observations and limits.
 
-Keep the main instructions within 250 lines and load references selectively.
-Reports stay in the conversation by default; existing project conventions govern
-saved artifacts. The skill has no required scripts, plugins, other skills or
-installation/configuration migration in target projects.
+These assessments are not a sandbox, signed attestation or machine-enforced
+verdict. Reports remain in the conversation by default; saved evidence follows
+the target project's conventions. There is no automatic repair or upload.
 
-## 3. Acceptance and validation
+## 3. Package and installation
 
-- Validate skill frontmatter and metadata with the available skill creator's
-  `scripts/quick_validate.py plugins/plumbline/skills/plumbline`.
-- Run `node --test tests/distribution/package.test.mjs` for package changes.
-  The real entry point must catch bad metadata, escaping paths, missing/changed
-  licenses, bad references, unexpected payload and missing/damaged/nonsquare icons.
-- Use `tests/skill/README.md` for behavior changes. Inspect actual agent actions,
-  checker observations and reports; text or catalog presence is not behavior proof.
-- Check relevant Markdown links, source targets and anchors; run whitespace checks
-  against the complete candidate, not only its dirty worktree.
-- Run `bash tests/governance/check-dco.sh` for contribution-history validation.
-- Bind results to actual source, tools and inputs. Distinguish local packaging,
-  synthetic behavior, native installation, remote availability and production use.
+The native wrapper is `plugins/plumbline/`. Both catalogs point there:
 
-Codex is the active execution-testing host. The owner excludes all future Claude
-CLI testing and validation. Keep Claude metadata synchronized statically; dated
-earlier results do not establish current execution. No Rust build is needed.
+- `.agents/plugins/marketplace.json` for Codex.
+- `.claude-plugin/marketplace.json` for Claude Code.
 
-## 4. Retired framework boundary
+The marketplace is `plumbline-marketplace`; the plugin is `plumbline`.
+Both hosts expose `plumbline:plumbline`. Standalone Codex installation exposes
+`$plumbline`; use one installation method per host.
+[`INSTALL.md`](INSTALL.md) owns installation, discovery, update and removal steps.
 
-D081 replaced the former framework with the portable skill. The Rust prototype,
-universal protocol/configuration, signed evidence ledger, policy engine, isolation
-broker, numerical floors, runtime/adapter and binary roadmap are retired.
-They are not required by the skill or queued for revival.
+The package version is **0.1.3**, with matching host manifests and eleven payload
+files. It corrects the license declaration to **GPL-3.0-only**. The preceding
+verified public delivery was **0.1.2**; D087 records this batch's delivery scope.
 
-D084 removes obsolete source, records, caches and Docker material. D085 replaces
-the prior development ancestry with one fresh skill-only root, so historical DCO
-exceptions and certificate machinery are also removed from the active repository.
-Offline recovery material remains private and is never pushed as a backup ref.
+On 2026-10-27, Codex CLI 0.162.1 help confirmed the documented native plugin
+command syntax. Claude instructions and metadata were checked statically against
+official documentation. Neither check established end-to-end installation.
 
-## 5. Delivery definition and evidence boundaries
-
-The 0.1.2 wrapper contains eleven files. Both host manifest versions match.
-The approved square PNG is used for the listing and composer with SHA-256
+The approved square icon is unchanged, with SHA-256
 `fcd8a77ed79c122bb89317ca8f48bb41458efcdeb03b2685a4229da6fb4506f3`.
-Its bytes are unchanged from the owner-approved preview. Local browser observations
-at 48, 64, 128 and 256 CSS pixels on light/dark backgrounds support legibility;
-native host icon masking was not tested.
+Only the skill's license metadata changes in this package; its operational
+instructions, references, report template and invocation policy are preserved.
 
-Portable skill instructions, references, template and invocation policy remain
-unchanged from 0.1.1. Earlier behavior samples are bounded observations, not a
-general reliability rate. Native installation of the 0.1.2 wrapper remains
-unverified. Existing user installations were not modified by this work.
+## 4. Validation and acceptance
 
-The fresh history starts with one DCO-signed initial contribution. Its exact object ID,
-frozen file hashes, local validation outputs, lease value and remote read-back
-belong to the private delivery receipt, avoiding a self-referential commit hash in
-this tree. Verify actual Git refs when accepting or resuming delivery.
-
-Official-submission ZIPs, portal/policy drafts and duplicate run/preview copies are
-obsolete. No official archive was uploaded, cloud draft created or skill scan
-started. Portal identity checks, attestations, listing URLs, country targeting and
-commerce fields are not requirements for the chosen repository/marketplace route.
-
-## 6. D085 authorized delivery and conditional visibility
-
-The conditional visibility route recorded below is historical. D086 in section 10
-supersedes its requirement to retain the existing GitHub repository and wait for
-provider cleanup before public delivery.
-
-On 2026-10-27 the owner explicitly authorized a fresh init from the cleaned current
-version, a signed-off commit and `force-with-lease` replacement of GitHub main,
-while preserving the existing repository and address. This supersedes the earlier
-choice to retain its development commits. Only `refs/heads/main` is replaced;
-refuse a lease mismatch or any concurrent source change. No unrelated ref, remote
-repository deletion or CNB synchronization is included.
-
-Preserve a verified full Git bundle and current working-tree snapshot outside the
-repository first. Freeze and validate the exact candidate, create a parentless
-initial commit using the owner's configured identity, validate its actual DCO,
-then compare and push against the freshly observed remote head. Read GitHub main
-back independently. Install the same clean Git metadata locally with rollback
-available; retain the existing remote URLs.
-
-The owner also explicitly authorizes a scheduled agent to make
-`ShanireZ/Plumbline` public after the existing cleanup requests are completed and
-known old objects are confirmed unreadable. The job must verify the intended new
-main, authenticated current-main control, old commits and retained PR refs first.
-Keep private on ambiguous responses or missing access. A 404 caused by missing
-authentication is not erasure evidence. CNB visibility remains unchanged.
-
-The follow-up stays quiet while unchanged/non-actionable and reports meaningful
-progress, completion, failure or required user action. It performs no commit/push,
-mirror synchronization, new support communication, official-directory action or
-legal attestation. Public visibility remains a separate outcome from root-history
-delivery; creating the new root does not waive provider cleanup.
-
-## 7. Ordinary DCO contribution history
-
-Every reachable commit must have its own `Signed-off-by` trailer matching the
-actual author email under ASCII case-insensitive comparison. Display names may
-differ. `Co-Authored-By` does not create another sign-off requirement.
-
-The no-argument `tests/governance/check-dco.sh` checks complete, non-shallow
-history and exercises positive, unsigned, wrong-email and shallow controls in
-disposable repositories. There are no retrospective exceptions, fixed historical
-pair arrays, certificate pins, runtime approval flags or policy bypasses.
-Old certification records are preserved only in private offline recovery.
-
-## 8. Dual-host marketplace distribution
-
-The catalogs `.agents/plugins/marketplace.json` and `.claude-plugin/marketplace.json`
-point at `./plugins/plumbline`. The marketplace is `plumbline-marketplace`; the
-plugin is `plumbline`. Native managers install, update and remove it.
-Both hosts load one skill using the `plumbline:plumbline` namespace.
-Standalone `$plumbline` remains supported; use one method per host.
-
-`INSTALL.md` documents GitHub and local sources, CLI/in-session installation,
-invocation and removal. Private access uses existing host Git authentication.
-Changing source does not prove an installed cache was replaced. Installation and
-discovery do not establish automatic selection or correctness of every report.
-
-The 2026-10-27 prepublication review adds explicit prerequisites, installed-plugin
-checks, native refresh/update/removal commands, standalone installation and recovery
-from a cached pre-rewrite marketplace. Codex CLI command syntax is checked against
-the installed 0.162.1 help; Claude instructions and metadata are checked against
-official documentation and the static package gate, without invoking Claude CLI.
-This review does not establish a new end-to-end native installation result.
-
-The owner explicitly authorized this batch's signed-off commit, normal GitHub
-push and scoped CNB synchronization on 2026-10-27, with both repositories staying
-private. Conditional GitHub public visibility waits for verified delivery as well
-as the provider-cleanup conditions below. Private receipts bind the reviewed main
-and its retained fresh initial root. Product skill, icon, manifests and package
-version remain unchanged.
-
-## 9. Cleanup and recovery
-
-The retired Rust/Docker source, dependencies/toolchain, historical architecture,
-research, old decision/roadmap navigation, dated log, obsolete policy drafts and
-twenty-one scratch directories have been removed from the active tree.
-Docker inventory found no Plumbline/NxtStrict containers, named images or volumes;
-shared resources and other projects remain untouched. There is no global prune.
-
-Preserve one verified private recovery snapshot for removed files and the separate
-pre-reinit Git bundle/working snapshot. These are outside the repository and are
-not dependencies or status authorities. Restore selected paths in a separate copy
-before applying rollback. Keep minimal active provider receipts while their work
-is pending; never upload private recovery material or expose it through a Git ref.
-
-## 10. Public repository replacement and retained cleanup
-
-The existing GitHub and CNB requests concern retained private history, not official
-plugin-directory publication. Keep both open: a new initial commit changes branch
-ancestry but does not erase provider-held PR refs, unreachable commits or caches.
-Support record IDs, original private hashes and correspondence remain outside Git.
-
-On 2026-10-27 the owner separately authorized synchronization of the new main to
-the existing private CNB mirror and supplements to both original support requests.
-The synchronization and supplements were delivered and read back. GitHub remained
-Open with two owner comments; the CNB thread contained two owner-sent messages.
-No provider completion reply was observed, and neither request was withdrawn.
-
-The old private object/ref identifiers remain cleanup targets. Authenticated
-checks still found a retained GitHub commit/PR ref and the superseded CNB main
-readable, even though the original CNB probe had changed to not found. Exact
-identifiers and results stay in private receipts. Owner follow-ups are not provider
-approval. Those observations describe the former conditional visibility route;
-they are not evidence that retained provider objects were erased.
-
-### D086: owner-authorized public replacement
-
-On 2026-10-28 the owner instructed: “github旧仓移除，然后建立新仓库+发布。
-cnb同步到新仓库。全部public，cnb已public”. This authorizes removal of the old
-`ShanireZ/Plumbline` GitHub repository, creation of an independent public repository
-at that same address, a signed-off local delivery commit and push, and scoped
-synchronization to the existing public `Round1/Plumbline` CNB mirror. It supersedes
-the earlier requirement to preserve the old GitHub repository and wait for support
-completion before publishing. No CNB repository deletion is included.
-
-Preserve a verified Git bundle, current working-tree snapshot and old GitHub
-metadata outside the repository before removal. Publish only the cleaned current
-skill history and reviewed documentation; retain the package version, shared
-skill, host catalogs and approved icon. Confirm the new GitHub repository has a
-different identity, read back its exact main, and synchronize branches and tags
-through the workspace's `sync-github-cnb.ps1 -Project Plumbline` entry point.
-Verify public access to both repositories independently of authenticated access.
-
-The four concise README versions are English, Simplified Chinese, Traditional
-Chinese (Taiwan) and Japanese, with a horizontal language menu on their first
-line. The owner clarified that the skill targets coding tools generally, rather
-than only the two packaged hosts. The repository description is “A portable skill
-for evidence-based software verification across coding tools.” Codex and Claude
-Code remain native installation examples; installation details are in `INSTALL.md`.
-
-The old GitHub repository was deleted and the new independent public repository
-was created on 2026-10-28 with repository ID `1436506201`. The existing CNB mirror
-remains public. Scoped synchronization and anonymous clones confirmed the same
-reviewed main and all 66 tracked file contents on both providers. Exact delivery
-revisions and subsequent read-back results remain in private receipts.
-
-An authenticated CNB probe still read a known superseded commit after the sync.
-Its cleanup remains unresolved; public delivery does not claim historical erasure.
-
-Deleting a repository and replacing branch refs do not establish provider-side
-erasure. Keep existing cleanup requests and private recovery material; do not
-withdraw requests or send new support correspondence. Record new repository
-identity, delivery hashes, public-access checks and any retained-object probe
-results in private receipts. Publication is distinct from old-object cleanup.
-
-Recovery uses the verified private bundle and working-tree snapshot in a separate
-copy. Deletion can lose provider metadata and settings; do not assume that Git
-backups restore those. Mirror recovery must start from the accepted GitHub source
-and use the same scoped synchronization entry point.
-
-## 11. Active decisions
-
-| Decision | Current responsibility |
+| Change | Required evidence |
 | --- | --- |
-| D081 | Portable evidence-verification skill; framework obligations stay retired. |
-| D083 | One shared skill with thin native Codex/Claude Code marketplace metadata. |
-| D084 | GitHub/native installation only; cancel official-directory work and remove obsolete material. |
-| D085 | One fresh signed-off root, exact leased GitHub main replacement, private recovery, ordinary DCO and explicitly authorized conditional scheduled public visibility. |
-| D086 | Replace the old GitHub repository with a new public repository at the same address; publish reviewed current content and synchronize the existing public CNB mirror. Old-object cleanup remains separate. |
+| Skill metadata | Available skill creator's `scripts/quick_validate.py` on the nested skill. |
+| Package, license or host metadata | `node --test tests/distribution/package.test.mjs`, including negative controls. |
+| Skill behavior | Isolated cases in [behavior validation](tests/skill/README.md), with actual actions and observations. |
+| Contribution history | `bash tests/governance/check-dco.sh` on complete, non-shallow history. |
+| Documentation | Parse OKF frontmatter, inspect authority and navigation, check links and examples, and review the rendered README. |
+| Any candidate | Check whitespace and the actual changed bytes; preserve unrelated work. |
+
+Every reachable commit needs its own `Signed-off-by` trailer matching the author
+email under ASCII case-insensitive comparison. Display names may differ.
+`Co-Authored-By` adds no sign-off requirement. There are no historical exceptions.
+
+Codex is the active host for execution testing. The owner excludes future Claude
+CLI testing; check its metadata statically. Packaging, synthetic behavior,
+installation/discovery, real-project use and public availability are distinct
+claims. Native installation of this package and general automatic selection
+remain unverified.
+
+## 5. Delivery and privacy
+
+GitHub is authoritative at [ShanireZ/Plumbline](https://github.com/ShanireZ/Plumbline);
+[Round1/Plumbline on CNB](https://cnb.cool/Round1/Plumbline) is its public mirror.
+The 2026-10-28 D086 delivery replaced the old GitHub repository with independent
+public repository ID `1436506201`. Scoped sync and anonymous clones verified the
+same reviewed main and 66 tracked files on both providers for that delivery.
+
+Exact revisions, file hashes and provider read-backs stay in private receipts.
+Each external write needs the owner's applicable explicit scope. D087 records
+the authorization for this documentation batch; older permissions do not carry
+forward automatically.
+CNB Git synchronization uses the workspace's `sync-github-cnb.ps1 -Project Plumbline`.
+
+Earlier checks still read a superseded CNB object. Current-main fixes and branch
+synchronization do not establish provider-side erasure. Keep existing cleanup
+requests and private recovery material. Do not publish historical identifiers,
+correspondence or credentials, or send support messages without authorization.
+
+Recovery material remains outside Git. Restore selected paths in a separate copy
+before considering a rollback; Git backups do not restore deleted provider
+settings or issue metadata. Source rollback and remote writes need their own scope.
+
+Delivery uses repository pages and native custom marketplaces/CLIs. Official
+OpenAI/Claude directory submission and a separate website remain outside scope.
+
+## 6. Owner decisions
+
+| Decision | Disposition |
+| --- | --- |
+| D081 | Adopt the portable verification skill; retire the former Rust framework, universal protocol, policy engine, ledger, numerical floors and runtime roadmap. |
+| D083 | Keep one shared skill with thin native Codex/Claude Code metadata. |
+| D084 | Remove retired framework material and official-directory work; keep approved icon, license and ordinary DCO. |
+| D085 | Completed fresh signed-off root and exact leased GitHub main replacement, with private recovery. Its preserve-repository and conditional-visibility route was superseded by D086. |
+| D086 | Completed owner-authorized GitHub deletion/recreation, public delivery and scoped sync to the existing public CNB mirror. Old-object cleanup remains separate. |
+| D087 | Correct current licensing to GPL version 3 only; move the four-language menu below the logo with ASCII parentheses; audit and refactor current documentation against official OKF v0.2, then obtain review. Prepare 0.1.3; the owner subsequently authorized one reviewed GitHub publication batch and CNB metadata updates/synchronization for Plumbline, Fulcrum and Aptinery. |
+
+D087 follows the owner's 2026-10-28 instruction “GPL-3.0 没有 or later” and the
+requested README/documentation review. Display labels use `GPL-3.0`; machine
+metadata uses SPDX `GPL-3.0-only`. The full standard GPL text is preserved after
+an explicit project grant. Earlier published bytes and notices remain historical.
+
+This correction affects license copies, manifests, skill frontmatter, package
+checks and contributor-facing documents. It changes no operational skill
+behavior. Recovery is a reviewable reversal of this batch's selected changes,
+preserving other work.
+
+The owner subsequently instructed “改造全部完成后，统一发布github，cnb修改与同步”.
+This authorizes signed-off commits, normal GitHub pushes, repository About edits
+and scoped CNB synchronization for the three named repositories after their
+changes and reviews are complete. It overrides Fulcrum's default owner-only push
+restriction for this batch. No unrelated source or dependency change is included.

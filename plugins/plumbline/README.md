@@ -14,5 +14,5 @@ The workflow preserves project permissions. A verification request does not gran
 permission to repair, install, deploy or publish. Planning-only requests do not
 execute checks. See [the skill](skills/plumbline/SKILL.md) for the portable workflow.
 
-The plugin is licensed under [GPL-3.0-or-later](LICENSE). The nested skill carries
+The plugin is licensed under [GNU GPL version 3 only](LICENSE) (`GPL-3.0-only`). The nested skill carries
 the same license text for standalone installation.

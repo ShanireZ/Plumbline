@@ -1,7 +1,7 @@
 ---
 name: plumbline
 description: Use when asked to verify a software change, plan its verification, decide whether it is complete or ready, or check whether test results and previous evidence support the current source. Covers skipped or zero-test success, stale evidence, and acceptance gaps using the project's existing requirements and tools. Planning-only requests do not execute checks.
-license: GPL-3.0-or-later
+license: GPL-3.0-only
 ---
 
 # Plumbline

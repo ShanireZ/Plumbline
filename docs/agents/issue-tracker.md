@@ -1,28 +1,35 @@
 ---
 type: convention
-title: Agent skill issue tracker
-description: Defines GitHub Issues as Plumbline's public engineering issue authority.
+title: Issue tracker
+description: Defines GitHub Issues as the public engineering tracker without granting execution authority.
 tags: [agents, issue-tracker, github]
 status: stable
+sources:
+  - id: plan
+    resource: ../../PLAN.md
+    title: Product decisions and delivery boundaries
+  - id: contribution
+    resource: ../../CONTRIBUTING.md
+    title: Contribution and review rules
 ---
 
-# Issue tracker: GitHub Issues
+# Issue tracker
 
-Public features, defects, implementation work, and design-change proposals for Plumbline live in [GitHub Issues at `ShanireZ/Plumbline`](https://github.com/ShanireZ/Plumbline/issues).
+Use [GitHub Issues](https://github.com/ShanireZ/Plumbline/issues) for public
+features, defects and design proposals. Each issue should describe one
+reviewable outcome, its acceptance criteria and relevant source/decision links.[^contribution]
 
-## Publication boundary
+Product decisions and current delivery state stay in
+[`PLAN.md`](../../PLAN.md). An issue does not override those decisions or authorize
+external writes.[^plan]
 
-Approved product decisions and current publication status live only in [`../../PLAN.md`](../../PLAN.md). Do not claim an issue exists without checking its actual URL, and do not create a parallel tracker.
+Verify a supplied issue URL or number before acting. Repository replacement does
+not preserve issue identities. Do not invent issues or create a parallel tracker.
+Use [the triage mapping](triage-labels.md); role names do not automatically become
+published labels.
 
-## Conventions
+Follow [SECURITY.md](../../SECURITY.md) for suspected vulnerabilities. Public
+contact requests must contain no vulnerability details.
 
-- One issue owns one independently reviewable outcome.
-- Link the applicable `PLAN.md` decision IDs and relevant skill instruction or scenario.
-- Record acceptance criteria in the issue body; do not hide them in comments.
-- Use the canonical labels from [`triage-labels.md`](triage-labels.md).
-- Security vulnerabilities never use public Issues; follow [`../../SECURITY.md`](../../SECURITY.md).
-- A GitHub issue may plan work but cannot override an approved decision or grant execution/publication authority.
-
-## When a skill publishes or fetches work
-
-Use the GitHub issue URL or number supplied by the user. Repository replacement does not preserve issue numbers; verify that a referenced issue belongs to the current repository before acting on it.
+[^plan]: Product decisions and delivery boundaries.
+[^contribution]: Focused changes, acceptance and review rules.
