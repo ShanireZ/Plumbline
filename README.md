@@ -5,8 +5,6 @@
 
 <img src="plugins/plumbline/assets/plumbline.png" alt="Plumbline" width="96" height="96">
 
-[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文(TW)](README.zh-TW.md) | [日本語](README.ja.md)
-
 A portable skill for evidence-based software verification across coding tools.
 
 Plumbline uses your project's requirements and tools to choose checks, verify
@@ -48,7 +46,7 @@ missing, skipped, or stale evidence leaves the relevant result unverified.
 
 ## More
 
-- [Product scope and status](PLAN.md) · [Documentation](docs/index.md)
+- [Product scope and decisions](PLAN.md) · [Documentation](docs/index.md)
 - [Contributing and DCO](CONTRIBUTING.md) · [Security](SECURITY.md)
 - [GNU GPL v3.0](LICENSE) (`GPL-3.0-only`) · [project notice](NOTICE)
 

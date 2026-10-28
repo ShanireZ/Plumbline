@@ -1,6 +1,6 @@
 interface:
-  display_name: "Plumbline 準繩"
-  short_description: "依據專案規範選擇驗證方式，整理可追溯證據並明確說明完成程度與缺口"
-  default_prompt: "用 $plumbline 依據目前專案規範驗證這次修改，報告實際證據與未涵蓋範圍。"
+  display_name: "Plumbline"
+  short_description: "Verify changes with project tools and traceable evidence."
+  default_prompt: "Use $plumbline to verify this change against the project's requirements and report the evidence and remaining gaps."
 policy:
   allow_implicit_invocation: true

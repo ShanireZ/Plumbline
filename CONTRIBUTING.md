@@ -12,7 +12,7 @@ belong in `PLAN.md`; documentation indexes provide navigation. Do not silently
 restore retired framework obligations or weaken a target project's permissions.
 
 Preserve unrelated work. Never commit credentials, private evidence, sensitive
-logs or provider-cleanup correspondence. See the
+logs or internal operating records. See the
 [documentation convention](docs/governance/documentation.md) for the OKF bundle.
 
 ## Checks
@@ -36,7 +36,7 @@ on `plugins/plumbline/skills/plumbline` if that developer tool is installed.
 For behavior changes, follow [the isolated scenarios](tests/skill/README.md).
 A packaging check does not establish agent behavior or native installation.
 Check changed documentation links, YAML, examples and rendered layout.
-Claude compatibility is checked statically; do not run Claude CLI validation.
+Use Codex for execution testing and static review for Claude compatibility.
 
 ## Developer Certificate of Origin
 

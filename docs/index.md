@@ -4,7 +4,7 @@ okf_version: "0.2"
 
 # Plumbline documentation
 
-[Product scope, decisions and current status](../PLAN.md) live in `PLAN.md`.
+[Product scope, acceptance and decisions](../PLAN.md) live in `PLAN.md`.
 This bundle provides navigation and maintenance guidance for the portable skill.
 
 ## Use and contribute
@@ -17,5 +17,5 @@ This bundle provides navigation and maintenance guidance for the portable skill.
 
 ## Maintain the project
 
-- [Governance](governance/index.md) — authority, documentation conventions and web applicability.
-- [Agent conventions](agents/index.md) — project context, Issues and triage labels.
+- [Governance](governance/index.md) — authority and documentation conventions.
+- [Agent conventions](agents/index.md) — project context, Issues and triage.

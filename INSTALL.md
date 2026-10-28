@@ -13,9 +13,9 @@ missing, update the host first.
 
 The examples install for your own user, without adding settings to the target
 project. Public repository installation needs no private-repository credentials.
-The dated host syntax checks are recorded in
-[PLAN.md](PLAN.md#3-package-and-installation). Keep any credentials
-outside commands, source URLs and plugin files.
+See [validation limits](PLAN.md#4-validation-and-acceptance) before treating
+command examples as installation evidence. Keep credentials outside commands,
+source URLs and plugin files.
 
 ## From GitHub
 

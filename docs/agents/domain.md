@@ -7,13 +7,13 @@ status: stable
 sources:
   - id: plan
     resource: ../../PLAN.md
-    title: Product contract and owner decisions
+    title: Public product contract and decisions
 ---
 
 # Project context
 
 Read [the relevant product contract](../../PLAN.md) before changing the package.
-Use the actual repository structure rather than a generic application template.[^plan]
+Use the actual repository structure when locating implementation and checks.[^plan]
 
 | Term | Meaning and source |
 | --- | --- |
@@ -23,14 +23,7 @@ Use the actual repository structure rather than a generic application template.[
 | Evidence | Observations bound to the checked source, inputs and environment; see the skill's selective references. |
 | Acceptance | Project-owned requirements and checks, not a universal correctness score. |
 
-Product decisions stay in `PLAN.md`. Package checks live in
-`tests/distribution/`; sampled behavior cases live in
-[`tests/skill/`](../../tests/skill/README.md). Contributor and reporting rules
-belong in [CONTRIBUTING.md](../../CONTRIBUTING.md) and
-[SECURITY.md](../../SECURITY.md).
+See [the authority map](../governance/source-of-truth.md) for contribution,
+security and validation sources.
 
-If an implementation conflicts with an approved decision, state the conflict and
-resolve it through the owner. A tool, issue or test result cannot reopen scope
-or grant publication permission.
-
-[^plan]: Plumbline product contract and owner decisions.
+[^plan]: Plumbline product contract and decisions.

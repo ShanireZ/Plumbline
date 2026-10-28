@@ -20,8 +20,7 @@ In the private report, include:
 - The possible impact, with secrets and personal data redacted.
 
 Never send live credentials or private evidence as an initial attachment.
-Use the exact revision for a historical finding; a current-main fix does not
-remove retained objects from a provider.
+Identify the exact affected revision, including for historical findings.
 
 ## Boundaries and disclosure
 
@@ -35,4 +34,4 @@ secret values and do not upload evidence automatically.
 
 Allow the maintainer to validate the report and coordinate a fix before public
 disclosure. Attribution follows the reporter's preference and confidentiality
-requirements. Provider-side cleanup and current-source fixes are separate work.
+requirements.

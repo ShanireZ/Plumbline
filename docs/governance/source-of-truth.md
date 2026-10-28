@@ -7,7 +7,7 @@ status: stable
 sources:
   - id: plan
     resource: ../../PLAN.md
-    title: Product contract and owner decisions
+    title: Public product contract and decisions
   - id: guide
     resource: ../../AGENTS.md
     title: Project boundaries and commands
@@ -16,13 +16,13 @@ sources:
 # Source of truth
 
 User instructions and host permissions bound every action.
-[`PLAN.md`](../../PLAN.md) owns Plumbline's product scope, acceptance, delivery
-state and decisions. [The project guide](../../AGENTS.md) records execution
+[`PLAN.md`](../../PLAN.md) owns Plumbline's public product scope, acceptance
+and decisions. [The project guide](../../AGENTS.md) records execution
 boundaries and validation commands.[^plan][^guide]
 
 | Material | Responsibility |
 | --- | --- |
-| `PLAN.md` | Product contract, current state and owner decisions. |
+| `PLAN.md` | Public product contract, acceptance and approved decisions. |
 | `plugins/plumbline/skills/plumbline/` | Shared operational instructions, selective references and report template. |
 | `plugins/plumbline/`, both catalogs and `INSTALL.md` | Package metadata and native/standalone installation. |
 | `NOTICE`, `LICENSE` and packaged copies | GPL-3.0-only project grant and unmodified standard license text. |
@@ -35,9 +35,11 @@ Update the document that owns a fact, then repair its navigation. Do not repeat
 changing status in indexes or silently restore retired framework requirements.
 
 Packaging, agent behavior, native installation, real-project use and public
-availability require distinct evidence. Raw run data, recovery material and
-provider correspondence remain outside Git. An earlier successful check cannot
-establish a changed candidate's behavior.
+availability require distinct evidence. An earlier successful check cannot
+establish a changed candidate's behavior. Internal operating records, publication
+approvals, raw run data, recovery material and provider correspondence stay in the
+maintainer's workspace, outside Git. Public documents must stand on their own
+without links to those local records.
 
-[^plan]: Product contract and owner decisions.
+[^plan]: Public product contract and decisions.
 [^guide]: Project boundaries and commands.
