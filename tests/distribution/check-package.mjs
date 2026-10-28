@@ -20,8 +20,8 @@ export function checkPackage(root) {
     return entry.isDirectory() ? files(path, name + '/') : [name];
   });
   assert.deepEqual(files(plugin).sort(), [
-    '.claude-plugin/plugin.json', 'LICENSE', 'README.md', 'plugin.json', 'assets/plumbline.png',
-    'skills/plumbline/LICENSE.txt', 'skills/plumbline/SKILL.md',
+    '.claude-plugin/plugin.json', 'LICENSE', 'NOTICE', 'README.md', 'plugin.json', 'assets/plumbline.png',
+    'skills/plumbline/LICENSE.txt', 'skills/plumbline/NOTICE.txt', 'skills/plumbline/SKILL.md',
     'skills/plumbline/agents/openai.yaml', 'skills/plumbline/assets/report-template.md',
     'skills/plumbline/references/check-selection.md', 'skills/plumbline/references/evidence-boundaries.md',
   ].sort(), 'Unexpected or missing plugin payload');
@@ -69,12 +69,17 @@ export function checkPackage(root) {
   assert(width === height && width >= 256 && width <= 4096, 'Icon must be square and 256-4096 pixels');
 
   const license = readFileSync(resolve(root, 'LICENSE'));
-  const grant = Buffer.from('Plumbline\nCopyright (C) 2026 ShanireZ\nSPDX-License-Identifier: GPL-3.0-only\n\nPlumbline is licensed under the GNU General Public License, version 3 only.\n\n');
-  assert(license.subarray(0, grant.length).equals(grant), 'Project license grant must be GPL-3.0-only');
-  assert.equal(createHash('sha256').update(license.subarray(grant.length)).digest('hex'),
+  // Providers classify the standard text; keep project-specific terms in NOTICE.
+  assert.equal(createHash('sha256').update(license).digest('hex'),
     '3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986', 'Standard GPL text differs');
   for (const path of [resolve(plugin, 'LICENSE'), resolve(skill, 'LICENSE.txt')]) {
     assert(readFileSync(path).equals(license), `License differs: ${path}`);
+  }
+  const notice = readFileSync(resolve(root, 'NOTICE'));
+  const grant = Buffer.from('Plumbline\nCopyright (C) 2026 ShanireZ\nSPDX-License-Identifier: GPL-3.0-only\n\nPlumbline is licensed under the GNU General Public License, version 3 only.\n\n');
+  assert(notice.subarray(0, grant.length).equals(grant), 'Project license grant must be GPL-3.0-only');
+  for (const path of [resolve(plugin, 'NOTICE'), resolve(skill, 'NOTICE.txt')]) {
+    assert(readFileSync(path).equals(notice), `Project license notice differs: ${path}`);
   }
   const instructions = readFileSync(resolve(skill, 'SKILL.md'), 'utf8');
   assert.match(instructions, /^---\r?\nname: plumbline\r?\n/);

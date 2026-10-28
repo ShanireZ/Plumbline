@@ -56,8 +56,8 @@ exceptions. `Co-Authored-By` does not require an additional sign-off.
 ## License and delivery
 
 Current contributions use [GNU GPL version 3 only](LICENSE)
-(`GPL-3.0-only`). Preserve the project grant and the unmodified standard GPL text
-in all packaged license copies.
+(`GPL-3.0-only`). Preserve the project grant in [NOTICE](NOTICE), the unmodified
+standard GPL text in LICENSE, and both files in every packaged copy.
 
 Commit, push, PR, mirror synchronization, release and installation require the
 owner's applicable explicit authorization under [the project guide](AGENTS.md).

@@ -25,7 +25,7 @@ boundaries and validation commands.[^plan][^guide]
 | `PLAN.md` | Product contract, current state and owner decisions. |
 | `plugins/plumbline/skills/plumbline/` | Shared operational instructions, selective references and report template. |
 | `plugins/plumbline/`, both catalogs and `INSTALL.md` | Package metadata and native/standalone installation. |
-| `LICENSE` and packaged copies | Project license grant and standard license text. |
+| `NOTICE`, `LICENSE` and packaged copies | GPL-3.0-only project grant and unmodified standard license text. |
 | `CONTRIBUTING.md` and `tests/governance/` | Contribution rules and DCO checks. |
 | `SECURITY.md` | Private reporting and disclosure guidance. |
 | `tests/distribution/` and `tests/skill/` | Package checks and sampled behavior evidence. |

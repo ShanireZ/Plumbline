@@ -45,4 +45,6 @@ claude plugin install plumbline@plumbline-marketplace --scope user
 
 - [製品の範囲と状況](PLAN.md) · [ドキュメント](docs/index.md)
 - [貢献と DCO](CONTRIBUTING.md) · [セキュリティ](SECURITY.md)
-- [GNU GPL v3.0](LICENSE)(`GPL-3.0-only`)
+- [GNU GPL v3.0](LICENSE)(`GPL-3.0-only`) · [プロジェクトのライセンス表記](NOTICE)
+
+コミュニティ：[LINUX DO](https://linux.do/)。

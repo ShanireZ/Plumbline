@@ -50,4 +50,6 @@ missing, skipped, or stale evidence leaves the relevant result unverified.
 
 - [Product scope and status](PLAN.md) · [Documentation](docs/index.md)
 - [Contributing and DCO](CONTRIBUTING.md) · [Security](SECURITY.md)
-- [GNU GPL v3.0](LICENSE) (`GPL-3.0-only`)
+- [GNU GPL v3.0](LICENSE) (`GPL-3.0-only`) · [project notice](NOTICE)
+
+Community: [LINUX DO](https://linux.do/).

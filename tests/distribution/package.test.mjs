@@ -5,6 +5,7 @@
 // Claude compatibility metadata is checked statically; do not invoke Claude CLI.
 // These Node checks make no model calls and do not change user installations.
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { cpSync, mkdtempSync, mkdirSync, readFileSync, realpathSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { basename, dirname, isAbsolute, join } from 'node:path';
@@ -19,7 +20,14 @@ const run = (dir) => spawnSync(process.execPath, [gate, dir], { encoding: 'utf8'
 test('canonical catalogs and minimal payload pass the actual entry point', () => {
   const result = run(root);
   assert.equal(result.status, 0, result.stderr);
-  assert.deepEqual(JSON.parse(result.stdout), { plugin: 'plumbline', version: '0.1.3', files: 11 });
+  assert.deepEqual(JSON.parse(result.stdout), { plugin: 'plumbline', version: '0.1.4', files: 13 });
+});
+
+test('license files retain the unprefixed standard GPL text for provider detection', () => {
+  for (const path of ['LICENSE', 'plugins/plumbline/LICENSE', 'plugins/plumbline/skills/plumbline/LICENSE.txt']) {
+    assert.equal(createHash('sha256').update(readFileSync(join(root, path))).digest('hex'),
+      '3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986', `${path}: keep the project grant outside the standard license text`);
+  }
 });
 
 const editJson = (dir, path, edit) => {
@@ -39,12 +47,24 @@ const controls = [
     writeFileSync(file, readFileSync(file, 'utf8').replace('license: GPL-3.0-only', 'license: GPL-3.0-or-later'));
   }, /GPL-3/],
   ['missing project license grant', (dir) => {
-    for (const path of ['LICENSE', 'plugins/plumbline/LICENSE', 'plugins/plumbline/skills/plumbline/LICENSE.txt']) {
-      const file = join(dir, path);
-      const text = readFileSync(file, 'utf8');
-      writeFileSync(file, text.slice(text.indexOf('                    GNU GENERAL PUBLIC LICENSE')));
+    for (const path of ['NOTICE', 'plugins/plumbline/NOTICE', 'plugins/plumbline/skills/plumbline/NOTICE.txt']) {
+      writeFileSync(join(dir, path), '');
     }
   }, /Project license grant must be GPL-3\.0-only/],
+  ['later-version project notice', (dir) => {
+    for (const path of ['NOTICE', 'plugins/plumbline/NOTICE', 'plugins/plumbline/skills/plumbline/NOTICE.txt']) {
+      const file = join(dir, path);
+      writeFileSync(file, readFileSync(file, 'utf8').replaceAll('GPL-3.0-only', 'GPL-3.0-or-later'));
+    }
+  }, /Project license grant must be GPL-3\.0-only/],
+  ['project grant prepended to every standard license', (dir) => {
+    const grant = readFileSync(join(dir, 'NOTICE'), 'utf8');
+    for (const path of ['LICENSE', 'plugins/plumbline/LICENSE', 'plugins/plumbline/skills/plumbline/LICENSE.txt']) {
+      const file = join(dir, path);
+      writeFileSync(file, grant + readFileSync(file, 'utf8'));
+    }
+  }, /Standard GPL text differs/],
+  ['different packaged project notice', (dir) => writeFileSync(join(dir, 'plugins/plumbline/NOTICE'), 'wrong notice'), /Project license notice differs/],
   ['changed standard GPL text in every copy', (dir) => {
     for (const path of ['LICENSE', 'plugins/plumbline/LICENSE', 'plugins/plumbline/skills/plumbline/LICENSE.txt']) {
       const file = join(dir, path);
@@ -80,7 +100,7 @@ for (const [name, mutate, expected] of controls) {
     const temporaryRoot = realpathSync(tmpdir());
     const dir = mkdtempSync(join(temporaryRoot, 'plumbline-distribution-'));
     try {
-      for (const path of ['.agents/plugins', '.claude-plugin', 'plugins/plumbline', 'LICENSE']) {
+      for (const path of ['.agents/plugins', '.claude-plugin', 'plugins/plumbline', 'LICENSE', 'NOTICE']) {
         const dest = join(dir, path);
         mkdirSync(dirname(dest), { recursive: true });
         cpSync(join(root, path), dest, { recursive: true });

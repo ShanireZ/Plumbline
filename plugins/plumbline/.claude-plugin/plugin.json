@@ -1,6 +1,6 @@
 {
   "name": "plumbline",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Verify software changes against project requirements with traceable evidence and explicit gaps.",
   "author": {
     "name": "ShanireZ"
