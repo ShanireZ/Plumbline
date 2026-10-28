@@ -235,6 +235,15 @@ than only the two packaged hosts. The repository description is “A portable sk
 for evidence-based software verification across coding tools.” Codex and Claude
 Code remain native installation examples; installation details are in `INSTALL.md`.
 
+The old GitHub repository was deleted and the new independent public repository
+was created on 2026-10-28 with repository ID `1436506201`. The existing CNB mirror
+remains public. Scoped synchronization and anonymous clones confirmed the same
+reviewed main and all 66 tracked file contents on both providers. Exact delivery
+revisions and subsequent read-back results remain in private receipts.
+
+An authenticated CNB probe still read a known superseded commit after the sync.
+Its cleanup remains unresolved; public delivery does not claim historical erasure.
+
 Deleting a repository and replacing branch refs do not establish provider-side
 erasure. Keep existing cleanup requests and private recovery material; do not
 withdraw requests or send new support correspondence. Record new repository
