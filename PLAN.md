@@ -106,6 +106,10 @@ commerce fields are not requirements for the chosen repository/marketplace route
 
 ## 6. D085 authorized delivery and conditional visibility
 
+The conditional visibility route recorded below is historical. D086 in section 10
+supersedes its requirement to retain the existing GitHub repository and wait for
+provider cleanup before public delivery.
+
 On 2026-10-27 the owner explicitly authorized a fresh init from the cleaned current
 version, a signed-off commit and `force-with-lease` replacement of GitHub main,
 while preserving the existing repository and address. This supersedes the earlier
@@ -186,7 +190,7 @@ not dependencies or status authorities. Restore selected paths in a separate cop
 before applying rollback. Keep minimal active provider receipts while their work
 is pending; never upload private recovery material or expose it through a Git ref.
 
-## 10. Privacy cleanup before public visibility
+## 10. Public repository replacement and retained cleanup
 
 The existing GitHub and CNB requests concern retained private history, not official
 plugin-directory publication. Keep both open: a new initial commit changes branch
@@ -203,9 +207,42 @@ The old private object/ref identifiers remain cleanup targets. Authenticated
 checks still found a retained GitHub commit/PR ref and the superseded CNB main
 readable, even though the original CNB probe had changed to not found. Exact
 identifiers and results stay in private receipts. Owner follow-ups are not provider
-approval. Require formal completion, authenticated old-object inaccessibility and
-verified delivery of the pending prepublication content before the scheduled
-visibility change. GitHub and CNB remain private while those conditions are unmet.
+approval. Those observations describe the former conditional visibility route;
+they are not evidence that retained provider objects were erased.
+
+### D086: owner-authorized public replacement
+
+On 2026-10-28 the owner instructed: “github旧仓移除，然后建立新仓库+发布。
+cnb同步到新仓库。全部public，cnb已public”. This authorizes removal of the old
+`ShanireZ/Plumbline` GitHub repository, creation of an independent public repository
+at that same address, a signed-off local delivery commit and push, and scoped
+synchronization to the existing public `Round1/Plumbline` CNB mirror. It supersedes
+the earlier requirement to preserve the old GitHub repository and wait for support
+completion before publishing. No CNB repository deletion is included.
+
+Preserve a verified Git bundle, current working-tree snapshot and old GitHub
+metadata outside the repository before removal. Publish only the cleaned current
+skill history and reviewed documentation; retain the package version, shared
+skill, host catalogs and approved icon. Confirm the new GitHub repository has a
+different identity, read back its exact main, and synchronize branches and tags
+through the workspace's `sync-github-cnb.ps1 -Project Plumbline` entry point.
+Verify public access to both repositories independently of authenticated access.
+
+The four concise README versions are English, Simplified Chinese, Traditional
+Chinese (Taiwan) and Japanese, with a horizontal language menu on their first
+line. The repository description is “Evidence-based software verification for
+Codex and Claude Code.” Installation details remain in `INSTALL.md`.
+
+Deleting a repository and replacing branch refs do not establish provider-side
+erasure. Keep existing cleanup requests and private recovery material; do not
+withdraw requests or send new support correspondence. Record new repository
+identity, delivery hashes, public-access checks and any retained-object probe
+results in private receipts. Publication is distinct from old-object cleanup.
+
+Recovery uses the verified private bundle and working-tree snapshot in a separate
+copy. Deletion can lose provider metadata and settings; do not assume that Git
+backups restore those. Mirror recovery must start from the accepted GitHub source
+and use the same scoped synchronization entry point.
 
 ## 11. Active decisions
 
@@ -215,3 +252,4 @@ visibility change. GitHub and CNB remain private while those conditions are unme
 | D083 | One shared skill with thin native Codex/Claude Code marketplace metadata. |
 | D084 | GitHub/native installation only; cancel official-directory work and remove obsolete material. |
 | D085 | One fresh signed-off root, exact leased GitHub main replacement, private recovery, ordinary DCO and explicitly authorized conditional scheduled public visibility. |
+| D086 | Replace the old GitHub repository with a new public repository at the same address; publish reviewed current content and synchronize the existing public CNB mirror. Old-object cleanup remains separate. |

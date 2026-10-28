@@ -8,11 +8,11 @@ status: stable
 
 # Issue tracker: GitHub Issues
 
-Public features, defects, implementation work, and design-change proposals for Plumbline live in GitHub Issues at `ShanireZ/Plumbline` after the repository is published.
+Public features, defects, implementation work, and design-change proposals for Plumbline live in [GitHub Issues at `ShanireZ/Plumbline`](https://github.com/ShanireZ/Plumbline/issues).
 
 ## Publication boundary
 
-While the repository is private, its issue tracker is limited to users with access. Do not claim a public issue exists or create a parallel tracker. Approved product decisions and current publication status live only in [`../../PLAN.md`](../../PLAN.md). Public issue work starts after the owner-authorized visibility change.
+Approved product decisions and current publication status live only in [`../../PLAN.md`](../../PLAN.md). Do not claim an issue exists without checking its actual URL, and do not create a parallel tracker.
 
 ## Conventions
 
@@ -25,4 +25,4 @@ While the repository is private, its issue tracker is limited to users with acce
 
 ## When a skill publishes or fetches work
 
-After publication, use the GitHub issue URL or number supplied by the user. Before publication, report that the configured tracker is not yet available and keep any temporary task state outside durable project documentation.
+Use the GitHub issue URL or number supplied by the user. Repository replacement does not preserve issue numbers; verify that a referenced issue belongs to the current repository before acting on it.

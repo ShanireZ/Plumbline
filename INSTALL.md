@@ -12,10 +12,10 @@ available for repository marketplaces. In your shell, `codex plugin --help` or
 missing, update the host first.
 
 The examples install for your own user, without adding settings to the target
-project. Repository access and the hosts actually checked are recorded in
-[PLAN.md](PLAN.md#8-dual-host-marketplace-distribution). While the repository is
-private, remote installation requires existing Git authentication and repository
-access. Keep credentials outside commands, source URLs and plugin files.
+project. Public repository installation needs no private-repository credentials.
+The hosts actually checked are recorded in
+[PLAN.md](PLAN.md#8-dual-host-marketplace-distribution). Keep any credentials
+outside commands, source URLs and plugin files.
 
 ## From GitHub
 
@@ -178,10 +178,9 @@ checkout and target-project files are not deleted by these commands.
 
 ## Troubleshooting
 
-- **Repository not found or authentication failed:** while private, confirm that
-  the host's Git account can access `ShanireZ/Plumbline`. An authenticated local
-  checkout is an alternative source. Public availability follows actual
-  repository visibility, not a successful local package check.
+- **Repository not found or authentication failed:** confirm the source is
+  `ShanireZ/Plumbline` and that Git can reach GitHub. Check host Git authentication
+  if it prompts unexpectedly. A local checkout is an alternative source.
 - **Old marketplace name or source:** inspect `codex plugin marketplace list` or
   `claude plugin marketplace list`. Use the removal steps before registering the
   same marketplace name from a different source.
