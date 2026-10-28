@@ -98,4 +98,4 @@ to the skill. Follow [the project guide](AGENTS.md) for action authorization.
 | D084 | Remove retired framework material and official-directory work; keep the approved icon, license and DCO for every reachable commit. |
 | D087 | Use GPL version 3 only and OKF v0.2 for the documentation bundle. |
 | D088 | Keep unmodified standard GPL v3 text in LICENSE and the version-3-only project grant in NOTICE at repository, plugin and standalone-skill boundaries. |
-| D089 | Use English for public documentation and host UI text. Keep reusable contracts in Git and internal operating records in the workspace. |
+| D089 | Keep each document's prose consistent with its intended language: English editions use English, and localized editions use their respective languages. Keep English, Simplified Chinese, Taiwan Traditional Chinese and Japanese README editions synchronized with reciprocal language links. Host UI text uses English. Keep reusable contracts in Git and internal operating records in the workspace. |

@@ -26,8 +26,11 @@ root index declares `okf_version: "0.2"`. Optional log entries use ISO dates.[^o
 Use `title`, `description`, `tags` and `sources` when useful. A source entry needs
 a `resource`; use stable source IDs for footnote attribution. Relative links
 preserve ordinary GitHub and CNB navigation. Keep public product scope and decisions
-in [`PLAN.md`](../../PLAN.md). Use English consistently in public documents and
-examples. Internal operating history belongs outside Git.[^plan]
+in [`PLAN.md`](../../PLAN.md). Keep each document's prose consistent with its
+intended language: English editions use English, and localized editions use
+their respective languages. Maintain separate English, Simplified Chinese,
+Taiwan Traditional Chinese and Japanese README editions with synchronized
+content and language navigation. Internal operating history belongs outside Git.[^plan]
 
 Use `draft`, `stable` or `deprecated` for lifecycle status. Do not invent
 `generated`, `verified` or freshness timestamps. No verification metadata is

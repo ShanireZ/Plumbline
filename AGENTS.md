@@ -37,9 +37,12 @@ Read first:
 - Local commit, push, PR, mirror sync, release, publication, and installation each
   require the owner's applicable explicit authorization. Historical authorization
   does not carry forward.
-- Write public documentation and host UI text in English. Keep internal operating
-  records, authorization receipts, recovery material and credentials outside Git;
-  no public document should require a maintainer's local files.
+- Keep each document's prose consistent with its intended language. English
+  editions use English; localized editions use their respective languages.
+  Keep the English, Simplified Chinese, Taiwan Traditional Chinese and Japanese
+  README editions synchronized with links to all four. Host UI text uses English.
+  Keep internal operating records, authorization receipts, recovery material and
+  credentials outside Git; public documents must not require maintainer-local files.
 
 ## Verification
 

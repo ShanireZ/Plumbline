@@ -5,6 +5,8 @@
 
 <img src="plugins/plumbline/assets/plumbline.png" alt="Plumbline" width="96" height="96">
 
+[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文(TW)](README.zh-TW.md) | [日本語](README.ja.md)
+
 A portable skill for evidence-based software verification across coding tools.
 
 Plumbline uses your project's requirements and tools to choose checks, verify
