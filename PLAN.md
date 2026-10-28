@@ -230,8 +230,10 @@ Verify public access to both repositories independently of authenticated access.
 
 The four concise README versions are English, Simplified Chinese, Traditional
 Chinese (Taiwan) and Japanese, with a horizontal language menu on their first
-line. The repository description is “Evidence-based software verification for
-Codex and Claude Code.” Installation details remain in `INSTALL.md`.
+line. The owner clarified that the skill targets coding tools generally, rather
+than only the two packaged hosts. The repository description is “A portable skill
+for evidence-based software verification across coding tools.” Codex and Claude
+Code remain native installation examples; installation details are in `INSTALL.md`.
 
 Deleting a repository and replacing branch refs do not establish provider-side
 erasure. Keep existing cleanup requests and private recovery material; do not

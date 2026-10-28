@@ -7,7 +7,7 @@
 
 <img src="plugins/plumbline/assets/plumbline.png" alt="Plumbline" width="96" height="96">
 
-Evidence-based software verification for Codex and Claude Code.
+A portable skill for evidence-based software verification across coding tools.
 
 Plumbline uses your project's requirements and tools to choose checks, verify
 changes, and report what the evidence supports and what remains unverified.

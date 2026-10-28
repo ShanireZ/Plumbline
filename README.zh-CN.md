@@ -7,7 +7,7 @@
 
 <img src="plugins/plumbline/assets/plumbline.png" alt="Plumbline" width="96" height="96">
 
-为 Codex 和 Claude Code 提供基于证据的软件变更验证。
+适用于各类 AI 编程工具、基于证据的软件变更验证 skill。
 
 Plumbline 根据项目既有要求与工具选择检查、验证变更，说明证据支持哪些结论，以及哪些内容仍未验证。无需额外运行环境或项目配置。
 
