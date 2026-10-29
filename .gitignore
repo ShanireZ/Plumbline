@@ -1,1 +1,19 @@
 /handoff/
+
+# Local host settings and operating records are not skill distribution inputs.
+/.local/
+/.scratch/
+/vardata/
+/credentials/
+/node_modules/
+/.cache/
+/.codex/
+/.claude/
+/.env
+/.env.*
+!/.env.example
+/*.bundle
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
